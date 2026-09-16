@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TresPolvos - Marketplace Dominicano</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}
+body{background:#0f0f0f;color:#fff}
+header{height:60px;background:#000;display:flex;align-items:center;padding:0 12px;gap:10px;border-bottom:3px solid #ff2a6d;position:sticky;top:0;z-index:10}
+.logo{width:36px;height:36px;background:#ff2a6d;border-radius:8px;display:grid;place-items:center;font-weight:900}
+.search{flex:1;background:#1f1f1f;border-radius:20px;padding:8px 12px;color:#aaa}
+.hero{padding:16px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:12px}
+.card{background:#1a1a1a;border-radius:12px;overflow:hidden;border:1px solid #2a2a2a}
+.card img{width:100%;height:110px;object-fit:cover;background:#222}
+.card .info{padding:8px}
+.price{color:#ff2a6d;font-weight:800}
+.btn{width:100%;background:#ff2a6d;color:#fff;border:0;padding:10px;border-radius:8px;margin-top:6px;font-weight:700}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">3P</div>
+<div><b>TresPolvos</b> <small style="color:#ff2a6d">DO</small></div>
+<div class="search">🔍 Buscar en Trespolvos...</div>
+</header>
+<div class="hero"><h2>Marketplace🔥</h2><p style="color:#888;font-size:13px">Versión estable - 60px header, sin fallos</p></div>
+<div class="grid" id="grid"></div>
+<script>
+const data=[
+{name:"AirPods Pro",price:"RD$ 3,500",img:"https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=300"},
+{name:"Jordan Retro",price:"RD$ 4,200",img:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=300"},
+{name:"iPhone 14 Pro",price:"RD$ 42,000",img:"https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=300"},
+{name:"PS5 Slim",price:"RD$ 28,000",img:"https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=300"},
+{name:"Reloj Rolex",price:"RD$ 8,500",img:"https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=300"},
+{name:"Laptop HP",price:"RD$ 22,000",img:"https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=300"},
+];
+const g=document.getElementById('grid');
+g.innerHTML=data.map(d=>`<div class="card"><img src="${d.img}"><div class="info"><div style="font-size:13px">${d.name}</div><div class="price">${d.price}</div><button class="btn">Ver</button></div></div>`).join('');
+</script>
+</body>
+</html>
