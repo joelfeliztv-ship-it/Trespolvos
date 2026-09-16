@@ -4,40 +4,54 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>TresPolvos - Marketplace Dominicano</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',system-ui}
 body{background:#0f0f0f;color:#fff}
-header{height:60px;background:#000;display:flex;align-items:center;padding:0 12px;gap:10px;border-bottom:3px solid #ff2a6d;position:sticky;top:0;z-index:10}
-.logo{width:36px;height:36px;background:#ff2a6d;border-radius:8px;display:grid;place-items:center;font-weight:900}
-.search{flex:1;background:#1f1f1f;border-radius:20px;padding:8px 12px;color:#aaa}
-.hero{padding:16px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:12px}
-.card{background:#1a1a1a;border-radius:12px;overflow:hidden;border:1px solid #2a2a2a}
-.card img{width:100%;height:110px;object-fit:cover;background:#222}
-.card .info{padding:8px}
-.price{color:#ff2a6d;font-weight:800}
-.btn{width:100%;background:#ff2a6d;color:#fff;border:0;padding:10px;border-radius:8px;margin-top:6px;font-weight:700}
+header{height:60px;background:#000;display:flex;align-items:center;justify-content:space-between;padding:0 14px;border-bottom:3px solid #ff2a6d;position:sticky;top:0;z-index:100}
+.logo{display:flex;align-items:center;gap:8px;font-weight:900;font-size:18px}
+.logo div{width:38px;height:38px;background:linear-gradient(135deg,#ff2a6d,#ff6b35);border-radius:10px;display:grid;place-items:center}
+.search{flex:1;max-width:420px;margin:0 14px;background:#1e1e1e;border-radius:22px;display:flex;align-items:center;padding:0 12px;height:38px;border:1px solid #2a2a2a}
+.search input{background:transparent;border:0;color:#fff;width:100%;outline:0;font-size:13px}
+.btn-vender{background:#ff2a6d;color:#fff;border:0;padding:9px 18px;border-radius:20px;font-weight:800;font-size:13px}
+.hero{padding:18px 14px}
+.hero h1{font-size:26px;font-weight:900}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px}
+@media(min-width:700px){.grid{grid-template-columns:repeat(4,1fr)}}
+.card{background:#181818;border-radius:14px;overflow:hidden;border:1px solid #2a2a2a}
+.card img{width:100%;height:150px;object-fit:cover}
+.info{padding:10px}
+.info h3{font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.price{color:#ff2a6d;font-weight:900;margin-top:4px}
+.ubicacion{color:#777;font-size:11px;margin-top:2px}
+.acciones{display:flex;gap:6px;margin-top:8px}
+.acciones button{flex:1;border:0;padding:8px;border-radius:8px;font-weight:700;font-size:12px}
+.ver{background:#222;color:#fff;border:1px solid #333!important}
+.comprar{background:#ff2a6d;color:#fff}
+footer{padding:30px 14px;text-align:center;color:#555;font-size:11px;border-top:1px solid #222;margin-top:20px}
 </style>
 </head>
 <body>
 <header>
-<div class="logo">3P</div>
-<div><b>TresPolvos</b> <small style="color:#ff2a6d">DO</small></div>
-<div class="search">🔍 Buscar en Trespolvos...</div>
+<div class="logo"><div>3P</div> TresPolvos <span style="color:#ff2a6d;font-size:11px">DO</span></div>
+<div class="search">🔍 <input placeholder="Buscar en TresPolvos..."></div>
+<button class="btn-vender">+ Vender</button>
 </header>
-<div class="hero"><h2>Marketplace🔥</h2><p style="color:#888;font-size:13px">Versión estable - 60px header, sin fallos</p></div>
+<div class="hero"><h1>Todo lo que buscas, a un polvo de distancia 💨</h1><p style="color:#888;font-size:13px;margin-top:6px">Marketplace 100% dominicano - Header 60px estable sin fallos</p></div>
 <div class="grid" id="grid"></div>
+<footer>TresPolvos © 2026 - Hecho en República Dominicana 🇩🇴<br>https://joelfeliztv-ship-it.github.io/Trespolvos/</footer>
 <script>
-const data=[
-{name:"AirPods Pro",price:"RD$ 3,500",img:"https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=300"},
-{name:"Jordan Retro",price:"RD$ 4,200",img:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=300"},
-{name:"iPhone 14 Pro",price:"RD$ 42,000",img:"https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=300"},
-{name:"PS5 Slim",price:"RD$ 28,000",img:"https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=300"},
-{name:"Reloj Rolex",price:"RD$ 8,500",img:"https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=300"},
-{name:"Laptop HP",price:"RD$ 22,000",img:"https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=300"},
+const productos=[
+{name:"AirPods Pro 2da Gen",price:"RD$ 3,500",ubi:"Santo Domingo",img:"https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=400"},
+{name:"Jordan Retro 4",price:"RD$ 4,200",ubi:"Santiago",img:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400"},
+{name:"iPhone 14 Pro 128GB",price:"RD$ 42,000",ubi:"Distrito Nacional",img:"https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400"},
+{name:"PlayStation 5 Slim",price:"RD$ 28,500",ubi:"La Romana",img:"https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=400"},
+{name:"Rolex Submariner Clon",price:"RD$ 8,500",ubi:"San Pedro",img:"https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=400"},
+{name:"Laptop HP i5 8GB",price:"RD$ 22,000",ubi:"Santo Domingo Este",img:"https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400"},
+{name:"Bicicleta MTB Aro 29",price:"RD$ 9,800",ubi:"San Luis",img:"https://images.unsplash.com/photo-1485968579580-b09147e6f8b7?w=400"},
+{name:"Sofá 3 plazas",price:"RD$ 12,000",ubi:"Santo Domingo Oeste",img:"https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400"},
 ];
-const g=document.getElementById('grid');
-g.innerHTML=data.map(d=>`<div class="card"><img src="${d.img}"><div class="info"><div style="font-size:13px">${d.name}</div><div class="price">${d.price}</div><button class="btn">Ver</button></div></div>`).join('');
+document.getElementById('grid').innerHTML=productos.map(p=>`<div class="card"><img src="${p.img}" loading="lazy"><div class="info"><h3>${p.name}</h3><div class="price">${p.price}</div><div class="ubicacion">📍 ${p.ubi}</div><div class="acciones"><button class="ver">Ver</button><button class="comprar">Comprar</button></div></div></div>`).join('');
 </script>
 </body>
 </html>
