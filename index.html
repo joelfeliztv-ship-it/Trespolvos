@@ -4,42 +4,49 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>TresPolvos - Marketplace Dominicano</title>
+<meta name="theme-color" content="#ff2a6d">
+<link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIlRyZXNQb2x2b3MiLAogICJzaG9ydF9uYW1lIjogIlRyZXNQb2x2b3MiLAogICJzdGFydF91cmwiOiAiL1RyZXNwb2x2b3MvIiwKICAiZGlzcGxheSI6ICJzdGFuZGFsb25lIiwKICAiYmFja2dyb3VuZF9jb2xvciI6ICIjMGYwZjBmIiwKICAidGhlbWVfY29sb3IiOiAiI2ZmMmE2ZCIsCiAgImljb25zIjogWwogICAgeyAic3JjIjogImljb24tMTkyLnBuZyIsICJzaXplcyI6ICIxOTJ4MTkyIiwgInR5cGUiOiAiaW1hZ2UvcG5nIiB9LAogICAgeyAic3JjIjogImljb24tNTEyLnBuZyIsICJzaXplcyI6ICI1MTJ4NTEyIiwgInR5cGUiOiAiaW1hZ2UvcG5nIiB9CiAgXQp9">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',system-ui}
-body{background:#0f0f0f;color:#fff}
-header{height:60px;background:#000;display:flex;align-items:center;justify-content:space-between;padding:0 14px;border-bottom:3px solid #ff2a6d;position:sticky;top:0;z-index:100}
+:root{--bg:#0f0f0f;--card:#181818;--text:#fff;--muted:#888;--border:#2a2a2a;--header:#000;--search:#1e1e1e}
+.light{--bg:#f4f4f5;--card:#ffffff;--text:#111;--muted:#666;--border:#e5e5e5;--header:#ffffff;--search:#f0f0f0}
+body{background:var(--bg);color:var(--text);transition:.3s}
+header{height:60px;background:var(--header);display:flex;align-items:center;justify-content:space-between;padding:0 14px;border-bottom:3px solid #ff2a6d;position:sticky;top:0;z-index:100}
 .logo{display:flex;align-items:center;gap:8px;font-weight:900;font-size:18px}
-.logo div{width:38px;height:38px;background:linear-gradient(135deg,#ff2a6d,#ff6b35);border-radius:10px;display:grid;place-items:center}
-.search{flex:1;max-width:420px;margin:0 14px;background:#1e1e1e;border-radius:22px;display:flex;align-items:center;padding:0 12px;height:38px;border:1px solid #2a2a2a}
-.search input{background:transparent;border:0;color:#fff;width:100%;outline:0;font-size:13px}
+.logo div{width:38px;height:38px;background:linear-gradient(135deg,#ff2a6d,#ff6b35);border-radius:10px;display:grid;place-items:center;color:#fff}
+.search{flex:1;max-width:420px;margin:0 14px;background:var(--search);border-radius:22px;display:flex;align-items:center;padding:0 12px;height:38px;border:1px solid var(--border)}
+.search input{background:transparent;border:0;color:var(--text);width:100%;outline:0;font-size:13px}
 .btn-vender{background:#ff2a6d;color:#fff;border:0;padding:9px 18px;border-radius:20px;font-weight:800;font-size:13px}
-.hero{padding:18px 14px}
-.hero h1{font-size:26px;font-weight:900}
+.btn-theme{background:transparent;border:1px solid var(--border);color:var(--text);width:36px;height:36px;border-radius:50%;margin-left:8px;font-size:16px}
+.ad-banner{display:block;text-decoration:none;background:linear-gradient(90deg,#ff2a6d,#ff6b35);color:#fff;text-align:center;padding:10px 40px 10px 14px;font-weight:800;font-size:13px;position:relative}
+.ad-banner span{background:#fff;color:#ff2a6d;padding:2px 8px;border-radius:10px;margin-right:8px;font-size:11px}
+.ad-close{position:absolute;right:10px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.3);border:0;color:#fff;width:22px;height:22px;border-radius:50%;font-weight:900}
+.hero{padding:18px 14px}.hero h1{font-size:26px;font-weight:900}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px}
 @media(min-width:700px){.grid{grid-template-columns:repeat(4,1fr)}}
-.card{background:#181818;border-radius:14px;overflow:hidden;border:1px solid #2a2a2a}
+.card{background:var(--card);border-radius:14px;overflow:hidden;border:1px solid var(--border)}
 .card img{width:100%;height:150px;object-fit:cover}
-.info{padding:10px}
-.info h3{font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.price{color:#ff2a6d;font-weight:900;margin-top:4px}
-.ubicacion{color:#777;font-size:11px;margin-top:2px}
-.acciones{display:flex;gap:6px;margin-top:8px}
-.acciones button{flex:1;border:0;padding:8px;border-radius:8px;font-weight:700;font-size:12px}
-.ver{background:#222;color:#fff;border:1px solid #333!important}
-.comprar{background:#ff2a6d;color:#fff}
-footer{padding:30px 14px;text-align:center;color:#555;font-size:11px;border-top:1px solid #222;margin-top:20px}
+.info{padding:10px}.info h3{font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.price{color:#ff2a6d;font-weight:900;margin-top:4px}.ubicacion{color:var(--muted);font-size:11px;margin-top:2px}
+.acciones{display:flex;gap:6px;margin-top:8px}.acciones button{flex:1;border:0;padding:8px;border-radius:8px;font-weight:700;font-size:12px}
+.ver{background:var(--search);color:var(--text);border:1px solid var(--border)!important}.comprar{background:#ff2a6d;color:#fff}
+footer{padding:30px 14px;text-align:center;color:var(--muted);font-size:11px;border-top:1px solid var(--border);margin-top:20px}
 </style>
 </head>
 <body>
 <header>
 <div class="logo"><div>3P</div> TresPolvos <span style="color:#ff2a6d;font-size:11px">DO</span></div>
-<div class="search">🔍 <input placeholder="Buscar en TresPolvos..."></div>
-<button class="btn-vender">+ Vender</button>
+<div class="search">🔍 <input placeholder="Buscar..." id="buscador"></div>
+<div style="display:flex;align-items:center"><button class="btn-vender">+ Vender</button><button class="btn-theme" id="themeBtn">🌙</button></div>
 </header>
-<div class="hero"><h1>Todo lo que buscas, a un polvo de distancia 💨</h1><p style="color:#888;font-size:13px;margin-top:6px">Marketplace 100% dominicano - Header 60px estable sin fallos</p></div>
+<a id="adBanner" class="ad-banner" href="https://wa.me/18090000000?text=Hola%20vi%20la%20publicidad%20en%20TresPolvos" target="_blank">
+<span>PUBLICIDAD</span> 📱 iPhone 15 a credito - Toca aqui! 🔥
+<button class="ad-close" onclick="event.preventDefault();event.stopPropagation();document.getElementById('adBanner').style.display='none'">×</button>
+</a>
+<div class="hero"><h1>Todo lo que buscas, a un polvo de distancia 💨</h1><p style="color:var(--muted);font-size:13px;margin-top:6px">Modo Dia ☀️ / Noche 🌙 automatico</p></div>
 <div class="grid" id="grid"></div>
-<footer>TresPolvos © 2026 - Hecho en República Dominicana 🇩🇴<br>https://joelfeliztv-ship-it.github.io/Trespolvos/</footer>
+<footer>TresPolvos © 2026 - Hecho en RD 🇩🇴</footer>
 <script>
 const productos=[
 {name:"AirPods Pro 2da Gen",price:"RD$ 3,500",ubi:"Santo Domingo",img:"https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=400"},
@@ -49,9 +56,20 @@ const productos=[
 {name:"Rolex Submariner Clon",price:"RD$ 8,500",ubi:"San Pedro",img:"https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=400"},
 {name:"Laptop HP i5 8GB",price:"RD$ 22,000",ubi:"Santo Domingo Este",img:"https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400"},
 {name:"Bicicleta MTB Aro 29",price:"RD$ 9,800",ubi:"San Luis",img:"https://images.unsplash.com/photo-1485968579580-b09147e6f8b7?w=400"},
-{name:"Sofá 3 plazas",price:"RD$ 12,000",ubi:"Santo Domingo Oeste",img:"https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400"},
+{name:"Sofa 3 plazas",price:"RD$ 12,000",ubi:"Santo Domingo Oeste",img:"https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400"},
 ];
-document.getElementById('grid').innerHTML=productos.map(p=>`<div class="card"><img src="${p.img}" loading="lazy"><div class="info"><h3>${p.name}</h3><div class="price">${p.price}</div><div class="ubicacion">📍 ${p.ubi}</div><div class="acciones"><button class="ver">Ver</button><button class="comprar">Comprar</button></div></div></div>`).join('');
+document.getElementById('grid').innerHTML=productos.map(p=>'<div class="card"><img src="'+p.img+'" loading="lazy"><div class="info"><h3>'+p.name+'</h3><div class="price">'+p.price+'</div><div class="ubicacion">📍 '+p.ubi+'</div><div class="acciones"><button class="ver">Ver</button><button class="comprar">Comprar</button></div></div></div>').join('');
+document.getElementById('buscador').addEventListener('input', e=>{
+  const q=e.target.value.toLowerCase();
+  document.querySelectorAll('.card').forEach((c,i)=>{
+    c.style.display=productos[i].name.toLowerCase().includes(q)?'':'none';
+  });
+});
+function setTheme(t){document.body.className=t;localStorage.setItem('tema3P',t);document.getElementById('themeBtn').textContent=t==='light'?'🌙':'☀️';}
+let saved=localStorage.getItem('tema3P');
+if(saved){setTheme(saved);}else{let h=new Date().getHours();setTheme(h>=6&&h<18?'light':'dark');}
+document.getElementById('themeBtn').onclick=()=>{setTheme(document.body.className==='light'?'dark':'light');};
+if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js').catch(()=>{});}
 </script>
 </body>
 </html>
